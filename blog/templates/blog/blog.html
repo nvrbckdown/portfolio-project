@@ -2,21 +2,23 @@
 
 {% block content %}
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        {% for job in jobs %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}"/>
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-            </div>
-          </div>
-        </div>
+<main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+        <h3 class="pb-4 mb-4 font-italic border-bottom">
+          From my mind ;D
+        </h3>
+        {% for blog in blogs %}
+        <div class="blog-post">
+          <h2 class="blog-post-title">{{ blog.title }}</h2>
+          <p class="blog-post-meta">{{ blog.publicated_data }}<a href="#">{{ blog.author }}</a></p>
+          {{ blog.body }}
+        </div><!-- /.blog-post -->
+        <br>
         {% endfor %}
-      </div>
+      </div><!-- /.blog-main -->
     </div>
-  </div>
 
-{% endblock %}
+</main>
+
+{% endblock%}
